@@ -1,0 +1,53 @@
+﻿
+    @model kutuphane_otomasyou.Models.table.sikayetler
+
+    @{
+        ViewBag.Title = "İletişim Formu";
+    }
+
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>İletişim Formu</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1 style="text-align:center">İletişim Formu</h1>
+        <br />
+        <div class="container">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success" role="alert">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+
+            @using (Html.BeginForm("iletisim", "iletisim", FormMethod.Post, new { @class = "form" }))
+            {
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <div class="row g-3">
+                        <div class="col">
+                            @Html.TextBoxFor(m => m.ad, new { @class = "form-control", placeholder = "First name" })
+                            <br />
+                            @Html.TextBoxFor(m => m.soyad, new { @class = "form-control", placeholder = "Last name" })
+                            <br />
+                        </div>
+                    </div>
+                    <div class="mb-3" style="text-align:center">
+                        @Html.LabelFor(m => m.email, new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.email, new { @class = "form-control", placeholder = "name@example.com", @type = "email" })
+                    </div>
+                    <div class="mb-3" style="text-align:center">
+                        @Html.LabelFor(m => m.sikayet, new { @class = "form-label" })
+                        @Html.TextAreaFor(m => m.sikayet, new { @class = "form-control", rows = 3, placeholder = "Şikayetinizi buraya yazın..." })
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">GÖNDER</button>
+                </div>
+            }
+        </div>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

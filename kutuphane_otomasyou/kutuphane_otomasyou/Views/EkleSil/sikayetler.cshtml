@@ -1,0 +1,69 @@
+﻿
+
+@model IEnumerable<kutuphane_otomasyou.Models.table.sikayetler>
+
+
+@{
+    ViewBag.Title = "sikayetler";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şikayetler</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+    @if (Model != null)
+    {
+        <div class="container">
+            <h1 class="text-center">Şikayetler</h1><br />
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Email</th>
+                        <th>Şikayeti</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var sikayet in Model)
+                    {
+                        <tr>
+                            <td>@sikayet.Id</td>
+                            <td>@sikayet.ad</td>
+                            <td>@sikayet.soyad</td>
+                            <td>@sikayet.email</td>
+                            <td>@sikayet.sikayet</td>
+                            <td>
+
+
+                                @Html.ActionLink("Banı Kaldır", "baniKaldir", "EkleSil", new { kisiIsmi = sikayet.ad }, new { @class = "btn btn-danger btn-sm" })
+
+
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    }
+    else
+    {
+        <p>Veri bulunamadı.</p>
+    }
+<br /><br /><br />
+</body>
+
+
+</html>
