@@ -286,8 +286,20 @@ namespace kutuphane_otomasyou.Controllers
             // Eğer kisiIsmi boş ise BanliKullanicilar sayfasına yönlendir
             return RedirectToAction("banlananKisiler", "EkleSil");
         }
+        [Authorize]
+        public ActionResult sikayetSil(int kisiId)
+        {
 
 
+            databaseContextcs db = new databaseContextcs();
+            // Kullanıcıyı cezalı listesinden bul ve kaldır
+            sikayetler sikayet = db.sikayetlertablosu.FirstOrDefault(x => x.Id == kisiId);
+            db.sikayetlertablosu.Remove(sikayet);
+            db.SaveChanges();
+            return RedirectToAction("sikayetler", "EkleSil");
+
+
+        }
 
     }
 }
