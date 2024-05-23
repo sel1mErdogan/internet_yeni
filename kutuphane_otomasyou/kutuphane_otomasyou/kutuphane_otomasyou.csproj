@@ -129,12 +129,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\baseController.cs" />
     <Compile Include="Controllers\EkleSilController.cs" />
     <Compile Include="Controllers\GirisController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\iletisimController.cs" />
     <Compile Include="Controllers\kitaplarController.cs" />
     <Compile Include="Controllers\kitaplarimController.cs" />
+    <Compile Include="Controllers\PasswordHelper.cs" />
     <Compile Include="Controllers\ProfilController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Global.asax.cs">
@@ -236,9 +238,11 @@
     <Content Include="Views\EkleSil\sikayetler.cshtml" />
     <Content Include="Views\EkleSil\banlananKisiler.cshtml" />
     <Content Include="Views\EkleSil\baniKaldir.cshtml" />
+    <Content Include="Views\kitaplar\odunc_alinmis_kitaplar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using kutuphane_otomasyou.Models.table;
 
 namespace kutuphane_otomasyou.Controllers
 {
@@ -29,6 +30,7 @@ namespace kutuphane_otomasyou.Controllers
 
             return View();
         }
+        [Authorize]
         public ActionResult Aranan_Kitap(string Aranan_Kitap)
         {
             if (Aranan_Kitap != null)
@@ -81,7 +83,17 @@ namespace kutuphane_otomasyou.Controllers
                 return View();
             }
         }
+        [Authorize]
+        public ActionResult odunc_alinmis_kitaplar()
+        {
 
+            databaseContextcs db = new databaseContextcs();
+            List<AlinanKitaplar> kitap = db.AlinanKitapTaplosu.ToList();
+        
+
+            return View(kitap);
+            
+        }
 
 
 

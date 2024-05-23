@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.UI.WebControls;
+using kutuphane_otomasyou.Controllers.Helpers;
 
 namespace kutuphane_otomasyou.Controllers
 {
@@ -21,15 +22,24 @@ namespace kutuphane_otomasyou.Controllers
         public ActionResult kayit_ol(kisi yeniKisi)
         {
             databaseContextcs db = new databaseContextcs();
+            //var yeniKullanici = new kisi
+            //{
+            //    ad = yeniKisi.ad,
+            //    soyad = yeniKisi.soyad,
+            //    sifre = PasswordHelper.HashPassword(yeniKisi.sifre), // Şifreyi hash'liyoruz
+            //    email = yeniKisi.email
+            //};
+            //db.kisitablosu.Add(yeniKullanici);
+            //int sonuc = db.SaveChanges();
             db.kisitablosu.Add(yeniKisi);
             int sonuc = db.SaveChanges();
-
 
             var kullanici_id = db.kisitablosu.FirstOrDefault(x => x.ad == yeniKisi.ad);
             string ad = yeniKisi.ad;
             string email = yeniKisi.email;
             int kullanici_id2 = yeniKisi.Id;
 
+            
 
 
 
@@ -49,7 +59,7 @@ namespace kutuphane_otomasyou.Controllers
 
                 ViewBag.sonuc = "kayit basarisiz";
                 ViewBag.durum = "danger";
-
+                
 
             }
 
@@ -61,7 +71,7 @@ namespace kutuphane_otomasyou.Controllers
         {
 
             databaseContextcs db = new databaseContextcs();
-
+            var kullanici = db.kisitablosu.FirstOrDefault(x => x.ad == username);
 
 
             var kullanici_dogrulama = db.kisitablosu.FirstOrDefault(x => x.ad == username && x.sifre == password);
@@ -70,10 +80,14 @@ namespace kutuphane_otomasyou.Controllers
             if (Admin_dogrulama != null)
             {
 
+
                 if (username == Admin_dogrulama.ad && password == Admin_dogrulama.sifre)
                 {
+                   
+
+
                     Session["isim"] = Admin_dogrulama.ad;
-                    Session["soyad"]= Admin_dogrulama.soyad;
+                    Session["soyad"] = Admin_dogrulama.soyad;
                     Session["email"] = Admin_dogrulama.email;
                     Session["sifre"] = Admin_dogrulama.sifre;
                     FormsAuthentication.SetAuthCookie(Admin_dogrulama.ad, false);
@@ -85,14 +99,38 @@ namespace kutuphane_otomasyou.Controllers
                 }
                 return View();
             }
+
+
+            //else if (kullanici != null)
+            //{
+            //    if (PasswordHelper.VerifyPassword(password, kullanici.sifre))
+            //    {
+            //        Session["gizli"] = null;
+            //        FormsAuthentication.SetAuthCookie(kullanici.ad, false);
+            //        int kullanici_id = kullanici.Id;
+            //        Session["id"] = kullanici;
+            //        Session["gizli"] = null;
+            //        Session["isim"] = kullanici.ad;
+            //        Session["soyad"] = kullanici.soyad;
+            //        Session["email"] = kullanici.email;
+            //        Session["sifre"] = kullanici.sifre;
+            //        return RedirectToAction("Home", "Home");
+
+
+            //    }
+            //    return View();
+
+            //}
             else if (kullanici_dogrulama != null)
             {
+
+
                 Session["gizli"] = null;
                 FormsAuthentication.SetAuthCookie(kullanici_dogrulama.ad, false);
                 int kullanici_id = kullanici_dogrulama.Id;
                 Session["id"] = kullanici_id;
                 Session["gizli"] = null;
-                Session["isim"] = kullanici_dogrulama.ad;      
+                Session["isim"] = kullanici_dogrulama.ad;
                 Session["soyad"] = kullanici_dogrulama.soyad;
                 Session["email"] = kullanici_dogrulama.email;
                 Session["sifre"] = kullanici_dogrulama.sifre;

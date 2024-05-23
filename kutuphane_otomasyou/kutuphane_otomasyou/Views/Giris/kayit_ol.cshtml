@@ -242,21 +242,21 @@
 
                         <div class="input-group">
                             <label for="username">Adı : </label>
-                            @Html.TextBoxFor(x => x.ad, new { @id = "username", @required = "required" })
+                            @Html.TextBoxFor(x => x.ad, new { @id = "username", @required = "required", @maxlength = "30" })
 
                         </div>
                         <div class="input-group">
                             <label for="username2">Soyadı : </label>
-                            @Html.TextBoxFor(x => x.soyad, new { id = "username2", @required = "required" })
+                            @Html.TextBoxFor(x => x.soyad, new { id = "username2", @required = "required", @maxlength = "30" })
 
                         </div>
                         <div class="input-group">
                             <label for="email">E-posta : </label>
-                            @Html.TextBoxFor(x => x.email, new { @id = "email" , @required = "required" , @type = "email" })
+                            @Html.TextBoxFor(x => x.email, new { @id = "email" , @required = "required" , @type = "email", @maxlength = "30" })
                         </div>
                         <div class="input-group">
                             <label for="password">Şifre : </label>
-                            @Html.PasswordFor(x => x.sifre, new { @id = "password" , @required = "required" })
+                            @Html.PasswordFor(x => x.sifre, new { @id = "password" , @required = "required", @maxlength = "30" })
 
                         </div>
                         <div class="input-group">

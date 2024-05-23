@@ -29,22 +29,22 @@
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">kitap adi</span>
-                    @Html.TextBoxFor(x => x.kitap_adi, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.kitap_adi, new { @class = "form-control" ,@maxlength = "50" })
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">yazar</span>
-                    @Html.TextBoxFor(x => x.yazar, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.yazar, new { @class = "form-control", @maxlength = "50" })
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">türü</span>
-                    @Html.DropDownListFor(x => x.turu, new SelectList(ViewBag.Turler, "Value", "Text"), new { @class = "form-control" })
+                    @Html.DropDownListFor(x => x.turu, new SelectList(ViewBag.Turler, "Value", "Text"), new { @class = "form-control", @maxlength = "30" })
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">ozet</span>
-                    @Html.TextBoxFor(x => x.ozet, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.ozet, new { @class = "form-control", @maxlength = "300" })
                 </div>
 
                 <div class="input-group mb-3">
@@ -54,7 +54,7 @@
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">resmi</span>
-                    @Html.TextBoxFor(x => x.resimi, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.resimi, new { @class = "form-control" , @maxlength = "500" })
                 </div>
 
                 <div class="input-group mb-3">

@@ -57,7 +57,7 @@ namespace kutuphane_otomasyou.Controllers
 
             return View();
         }
-       
+        [Authorize]
         public ActionResult oduncAl(string Kitapismi)
         {
             databaseContextcs db = new databaseContextcs();
@@ -105,7 +105,7 @@ namespace kutuphane_otomasyou.Controllers
 
             return RedirectToAction("kitaplar", "kitaplar");
         }
-       
+        [Authorize]
         public ActionResult kitapDetaylari(string Kitapismi)
         {
 
@@ -125,6 +125,7 @@ namespace kutuphane_otomasyou.Controllers
 
             return RedirectToAction("kitapDetaylari", "kitaplar",new { Kitapismi = Kitapismi });
         }
+        [Authorize]
         public ActionResult AlinanKitapDetaylari(string Kitapismi)
         {
 
@@ -144,7 +145,7 @@ namespace kutuphane_otomasyou.Controllers
 
             return View();
         }
-       
+        [Authorize]
         public ActionResult iadeEt(string Kitapismi)
         {
             if (Kitapismi != null)

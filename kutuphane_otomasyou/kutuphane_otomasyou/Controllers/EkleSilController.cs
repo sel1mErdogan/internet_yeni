@@ -58,7 +58,7 @@ namespace kutuphane_otomasyou.Controllers
                         db.kitaptablosu.Add(yeni_kitap);
                         db.SaveChanges();
 
-                        return View(); // Metodu tamamlayan dönüş ifadesi
+                        return RedirectToAction("ekle", "EkleSil"); // Metodu tamamlayan dönüş ifadesi
                     }
 
                 }
@@ -93,7 +93,7 @@ namespace kutuphane_otomasyou.Controllers
                     db.kitaptablosu.Remove(kitapSil);
                     db.SaveChanges();
 
-
+                    return RedirectToAction("sil", "EkleSil");
 
 
                 }

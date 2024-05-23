@@ -29,19 +29,19 @@
                 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
                     <div class="row g-3">
                         <div class="col">
-                            @Html.TextBoxFor(m => m.ad, new { @class = "form-control", placeholder = "First name" })
+                            @Html.TextBoxFor(m => m.ad, new { @class = "form-control", placeholder = "First name" , @maxlength = "30" })
                             <br />
-                            @Html.TextBoxFor(m => m.soyad, new { @class = "form-control", placeholder = "Last name" })
+                            @Html.TextBoxFor(m => m.soyad, new { @class = "form-control", placeholder = "Last name", @maxlength = "30" })
                             <br />
                         </div>
                     </div>
                     <div class="mb-3" style="text-align:center">
                         @Html.LabelFor(m => m.email, new { @class = "form-label" })
-                        @Html.TextBoxFor(m => m.email, new { @class = "form-control", placeholder = "name@example.com", @type = "email" })
+                        @Html.TextBoxFor(m => m.email, new { @class = "form-control", placeholder = "name@example.com", @type = "email", @maxlength = "30" })
                     </div>
                     <div class="mb-3" style="text-align:center">
                         @Html.LabelFor(m => m.sikayet, new { @class = "form-label" })
-                        @Html.TextAreaFor(m => m.sikayet, new { @class = "form-control", rows = 3, placeholder = "Şikayetinizi buraya yazın..." })
+                        @Html.TextAreaFor(m => m.sikayet, new { @class = "form-control", rows = 3, placeholder = "Şikayetinizi buraya yazın...", @maxlength = "500" })
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg">GÖNDER</button>
                 </div>

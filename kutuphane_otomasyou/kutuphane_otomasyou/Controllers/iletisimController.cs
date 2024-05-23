@@ -13,13 +13,13 @@ namespace kutuphane_otomasyou.Controllers
         // GET: iletisim
 
         private databaseContextcs db = new databaseContextcs();
-
+        [Authorize]
         [HttpGet]
         public ActionResult iletisim()
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public ActionResult iletisim(sikayetler model)
         {
@@ -38,7 +38,7 @@ namespace kutuphane_otomasyou.Controllers
             // Model geçerli değilse formu yeniden göster
             return View(model);
         }
-
+        [Authorize]
         public ActionResult Success()
         {
             return View();

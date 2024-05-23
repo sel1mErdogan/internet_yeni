@@ -55,20 +55,18 @@
             </div>
         </nav>
     }<br />
-    @{
-        if (@Session["gizli"] != null)
-        {
-            <div style="margin-left:115px">
+    
+       
+        
+            <div style="margin-left:195px">
                     <div class="d-inline-block mr-2">
-                        @Html.ActionLink("YENİ KİTAP EKLE", "ekle", "EkleSil",null, new {@class= "btn btn-info mb-3" })
+                        @Html.ActionLink("Ödünç Verilmiş Kitaplar", "odunc_alinmis_kitaplar", "kitaplar", null, new {@class= "btn btn-info mb-3" })
                     </div>
 
-                    <div class="d-inline-block">
-                        @Html.ActionLink("KİTAP SİL", "sil", "EkleSil", null, new { @class = "btn btn-danger mb-3" })
-                    </div>
+                    
             </div>
-        }
-    }
+        
+    
 
 
     <section class="container my-5">
